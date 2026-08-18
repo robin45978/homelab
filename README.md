@@ -1,5 +1,5 @@
 # homelab
-In dem folgenden möchte ich mein Homelap dokumentieren, meine akteulle Umsetzung, meine Entwicklung über die Jahre und die meine Visionsziele für die Zukunft.
+n dem folgenden Repository möchte ich mein Homelab dokumentieren. Dabei werde ich besonders Wert auf meine aktuelle Umsetzung, die Entwicklung über die letzten 9 Jahre und meine Ziele und Visionen für die Zukunft erläutern.
 
 
 ## 🛠️ Tech Stack
