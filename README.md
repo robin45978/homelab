@@ -1,4 +1,4 @@
-# homelab
+# Homelab
 n dem folgenden Repository möchte ich mein Homelab dokumentieren. Dabei werde ich besonders Wert auf meine aktuelle Umsetzung, die Entwicklung über die letzten 9 Jahre und meine Ziele und Visionen für die Zukunft erläutern.
 
 
@@ -61,15 +61,53 @@ umstieg auf einen pc. erweitertz durch kleine alte firewall. fritzbox-firewall-p
 ---
 
 
-Ziele:
-Interne Subnetze  erweitern und bereiche gezielter umetzten
-ansible einrichten um schneller updates einzuspielen
-IAM umsetzen: Authentikat einrichten für sso in bestimme services nur im internen netz
-kubernetz, dies erfodert jedoch erwtierung meines homelabs
-n8n fpr die Automaitsierung von gewissen Workflows
-Security Onion Alerts bervessernum false true allerts zu entfernen
-Grafana,s ecurtiy onion, wazuh alerts in Discord webhook 
-Dokumentation meines Setups
+# 🚀 Zukunft / Vision
+
+## Netzwerk
+
+* [ ] Interne Subnetze erweitern
+* [ ] Netzwerksegmentierung verbessern
+
+## Automation
+
+* [ ] Ansible einrichten
+* [ ] Updates automatisieren
+* [ ] n8n für bestimmte Workflows einsetzen
+
+## IAM
+
+* [ ] Authentik einrichten
+* [ ] SSO für ausgewählte interne Services
+* [ ] Zentrale Authentifizierung
+* [ ] Rollen und Berechtigungen zentral verwalten
+
+## Security
+
+* [ ] Security Onion Alerts optimieren
+* [ ] False Positives reduzieren
+* [ ] Security Onion / Wazuh weiter integrieren
+* [ ] Security Alerts zentral sammeln
+* [ ] Alerts über Discord Webhooks ausgeben
+
+## Infrastructure
+
+* [ ] Kubernetes / K3s testen(erfodert Erweiterung meines aktuellen Homelabs)
+* [ ] Homelab Hardware erweitern
+
+## Documentation
+
+* [ ] Netzwerk vollständig dokumentieren
+* [ ] Backup- und Recovery-Konzept dokumentieren
+* [ ] Änderungen und wichtige Entscheidungen dokumentieren
+
+---
+
+# 🛡️ Cybersecurity Ziele
+
+Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten anzupassen. Dabei möchte ich mich zunächst afu das IS= 27001 und mich auf den BSI IT-Grundschutz (v.a BSI-200-4) fokusieren. Mir geht es hierbei darum, Sichehetskonzepte selbst umzusetzten.Vor akkem das
+
+ Business Continuity Management.
+
 
 
 
