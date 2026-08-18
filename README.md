@@ -27,21 +27,10 @@ n dem folgenden Repository möchte ich mein Homelab dokumentieren. Dabei werde i
 | **Remote desktop Access**    | NoMachine                                            |
 
 
-Openwrt auf altem T
 
 
-Services die ich früer verwendet habe,
-3CX Selbs gehjostet, wegen Lizenänderung auf externerr cloud
-Plex, Wegen koste n auf jellyfin umgesteigen
-Plesk auf cloudpanel gewechslt, obwohl mir plesk besser gefällt, aner nicht opensource
-Openvpn auf wireguard umgestiegen bezüglich performance
-pfsense umstieg  zu onsense wegen aktiverer Community und opensource
-raspberrypi umstiegauf server weil leistung nicht gereicht hat
-OpenmediaVault Wechsel zu TrueNAs Scale
-pihole umstellung zu adguard home um mehr filtereinstellungen zu haben
-akteull kein wazuh da seecurityonion sehr viel ram verbraucht
-als effizinetew  übetragungsprotokoll für linux habe ich nomaschien entdeckt, deutlich flüssiger als xdp un novnc und weniger datenervauch wie spice
-opensense haproxy aufgelöst für cloudflare tunnel. grund erweitertet ddos schutz und  zero trust
+
+
 
 
 
@@ -66,6 +55,8 @@ umstieg auf einen pc. erweitertz durch kleine alte firewall. fritzbox-firewall-p
 | Self-hosted 3CX      | Externe 3CX Cloud      | Änderung des Lizenzmodells |
 | HAProxy auf OPNsense | Cloudflare Tunnel      | DDoS-Schutz / Zero Trust   |
 | WireGuard auf LXC    | WireGuard auf OPNsense | Bessere Zugriffsverwaltung |
+| XRDP,Spice, NoVNC    | Nomaschine             | Performance                |
+
 
 ---
 
