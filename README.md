@@ -1,5 +1,5 @@
 # Homelab
-n dem folgenden Repository möchte ich mein Homelab dokumentieren. Dabei werde ich besonders Wert auf meine aktuelle Umsetzung, die Entwicklung über die letzten 9 Jahre und meine Ziele und Visionen für die Zukunft erläutern.
+n dem folgenden Repository möchte ich mein Homelab dokumentieren. Dabei werde ich besonders Wert auf meine aktuelle Umsetzung, die Entwicklung über die letzten 9 Jahre und meine Ziele und Visionen für die Zukunft erläutern. dabei lautet mein Grundsatz, dass ich für alles eine Opensource Lösung finden möchte und teste mich deshalb durch viele verscheidene Tools durch.
 
 
 ## 🛠️ Aktueller Tech Stack
