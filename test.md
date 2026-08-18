@@ -10,7 +10,7 @@ In dem folgenden Repository möchte ich mein Homelab dokumentieren – meine akt
 | -------------------- | ---------------------------------------------------- |
 | **Virtualization**   | Proxmox VE (VM & LXC)                                |
 | **Network**          | OPNsense, OpenWRT, Fritz!Box, Netgear Managed Switch |
-| **Security / SIEM**  | Security Onion, Suricata, Wazuh                      |
+| **Security / SIEM**  | Security Onion, Wazuh                                |
 | **Monitoring**       | Grafana, InfluxDB, Uptime Kuma                       |
 | **Containers**       | Docker, Portainer                                    |
 | **Cloud / Access**   | Cloudflare, Cloudflare Tunnel, Cloudflare Zero Trust |
