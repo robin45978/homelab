@@ -29,6 +29,10 @@ n dem folgenden Repository möchte ich mein Homelab dokumentieren. Dabei werde i
 
 
 
+<img width="905" height="532" alt="Dashboard " src="https://github.com/user-attachments/assets/c64e82f9-c2a9-418f-a52d-40040254f485" />
+
+<img width="901" height="524" alt="Dashboard 2" src="https://github.com/user-attachments/assets/d0f3a847-2c22-4ec9-b25b-9c86f8330c01" />
+
 
 
 
@@ -37,6 +41,12 @@ n dem folgenden Repository möchte ich mein Homelab dokumentieren. Dabei werde i
 meine Hardware entwicklung- Vom Anfang bis professionele homelab umgebung
 angefangen hat alles mit raspberrypi und ubuntu os. dort habe ich meine erste website damals laufen gehabt.
 umstieg auf einen pc. erweitertz durch kleine alte firewall. fritzbox-firewall-pc. da firewall zu schwach würde mit pfsense, wurde die pfsense als vm uf server umgestellt. dann sophos firewlal  umgerüs5tet azuf opensense zweiten pc und high availibility eingerichtet.Da die ressourcen begrennzt sind und ich nur 1gb/s leitung zwischen nodes habe benutze ich kein ceph sondern über nfs mittels shared nas. natürlich hat man nicht alle vorteile jedoch die beste lösung für mein setup raspberrypi als quorum. dann neuer recher. Aktuell Proxmox Cluster aus 3 Nodes und erwitertes setup in zwiten standort.
+
+
+<img width="990" height="598" alt="Proxmox" src="https://github.com/user-attachments/assets/2680800b-98d4-438f-802c-1e9034ecd33c" />
+
+
+
 
 
 # 🔄 Technologiewechsel
