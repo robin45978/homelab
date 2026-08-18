@@ -114,10 +114,7 @@ umstieg auf einen pc. erweitertz durch kleine alte firewall. fritzbox-firewall-p
 
 # 🛡️ Cybersecurity Ziele
 
-Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten anzupassen. Dabei möchte ich mich zunächst afu das IS= 27001 und mich auf den BSI IT-Grundschutz (v.a BSI-200-4) fokusieren. Mir geht es hierbei darum, Sichehetskonzepte selbst umzusetzten.Vor akkem das
-
- Business Continuity Management.
-
+Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten anzupassen. Dabei möchte ich mich zunächst afu das ISO 27001 und mich auf den BSI IT-Grundschutz (v.a BSI-200-4) fokusieren. Mir geht es hierbei darum, Sichehetskonzepte selbst in kleinem Mass umzusetzen.
 
 
 
@@ -129,6 +126,11 @@ Umsetzung von BSI-200-4
 Projekt cloudflare logs in Grafana irtualisieren.
 MitHilfe von Ki ein Script geschrieben,d ass über Cloudflare Api die Logs abruft. Cronjob führt dieses Script täglich aus 
 Die Logs werden dsann inInfluxDb Bucket geschrieben und Grafana ruft diese dann ab. dadurch werden Angriffe auf die Websiten visualsiert, da die Zugriffe ja nur bei Cloudflare ankommen
+
+<img width="917" height="558" alt="Grafana" src="https://github.com/user-attachments/assets/00db953c-e665-4765-87f8-95b7006a06c5" />
+<img width="860" height="511" alt="Grafana 2" src="https://github.com/user-attachments/assets/1390da3e-0b0f-4b03-9a65-a40a538fce65" />
+
+
 
 
 Projekt securityOnion:
