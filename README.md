@@ -47,7 +47,24 @@ angefangen hat alles mit raspberrypi und ubuntu os. dort habe ich meine erste we
 umstieg auf einen pc. erweitertz durch kleine alte firewall. fritzbox-firewall-pc. da firewall zu schwach würde mit pfsense, wurde die pfsense als vm uf server umgestellt. dann sophos firewlal  umgerüs5tet azuf opensense zweiten pc und high availibility eingerichtet.Da die ressourcen begrennzt sind und ich nur 1gb/s leitung zwischen nodes habe benutze ich kein ceph sondern über nfs mittels shared nas. natürlich hat man nicht alle vorteile jedoch die beste lösung für mein setup raspberrypi als quorum. dann neuer recher. Aktuell Proxmox Cluster aus 3 Nodes und erwitertes setup in zwiten standort.
 
 
+# 🔄 Technologiewechsel
 
+Über die Jahre habe ich einige Technologien durch andere Lösungen ersetzt. Folgend erkläre ich kurz, was mich zu dem Wechsel gebrachthat.
+
+| Früher               | Heute                  | Grund                      |
+| -------------------- | ---------------------- | -------------------------- |
+| Raspberry Pi         | Server / Proxmox       | Mehr Leistung benötigt     |
+| pfSense              | OPNsense               | Open Source / Community    |
+| OpenVPN              | WireGuard              | Performance                |
+| OpenMediaVault       | TrueNAS SCALE          | Storage-Anforderungen      |
+| Pi-hole              | AdGuard Home           | Mehr Filtermöglichkeiten   |
+| Plex                 | Jellyfin               | Kosten                     |
+| Plesk                | CloudPanel             | Open Source                |
+| Self-hosted 3CX      | Externe 3CX Cloud      | Änderung des Lizenzmodells |
+| HAProxy auf OPNsense | Cloudflare Tunnel      | DDoS-Schutz / Zero Trust   |
+| WireGuard auf LXC    | WireGuard auf OPNsense | Bessere Zugriffsverwaltung |
+
+---
 
 
 Ziele:
