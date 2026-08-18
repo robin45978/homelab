@@ -2,27 +2,30 @@
 n dem folgenden Repository möchte ich mein Homelab dokumentieren. Dabei werde ich besonders Wert auf meine aktuelle Umsetzung, die Entwicklung über die letzten 9 Jahre und meine Ziele und Visionen für die Zukunft erläutern.
 
 
-## 🛠️ Tech Stack
+## 🛠️ Aktueller Tech Stack
 
-| Bereich                | Services                                             |
-| ---------------------- | ---------------------------------------------------- |
-| **Virtualization**     | Proxmox VE (VM & LXC)                                |
-| **Network**            | OPNsense,OpenWRT,Fritzbox, Netgear Managed Switch    |
-| **SIEM**               | Security Onion, Wazuh                                |
-| **Monitoring**         | Grafana, InfluxDB, Uptime Kuma                       |
-| **Containers**         | Docker, Portainer                                    |
-| **Cloudflare**         | Cloudflare Zero Trust                                |
-| **VPN**                | WireGuard                                            |
-| **Smart Home**         | Home Assistant                                       |
-| **Cloud / Storage**    | Nextcloud, TrueNAS, Synology NAS                     |
-| **Documents**          | Paperless-ngx, InvoiceNinja                                    |
-| **Media**              | Jellyfin                                             |
-| **Automation**         | Cron Jobs                                            |
-DNS Adguard
-Dashboard Homarr
-Telephone 3CX
-Websites WordPress, Cloudpanel
-passwortverwahltung bitwarden
+| Bereich              | Services                                             |
+| -------------------- | ---------------------------------------------------- |
+| **Virtualization**   | Proxmox VE (VM & LXC)                                |
+| **Network**          | OPNsense, OpenWRT, Fritz!Box, Netgear Managed Switch |
+| **Security / SIEM**  | Security Onion, Wazuh                                |
+| **Monitoring**       | Grafana, InfluxDB, Uptime Kuma                       |
+| **Containers**       | Docker, Portainer                                    |
+| **Cloud / Access**   | Cloudflare, Cloudflare Tunnel, Cloudflare Zero Trust |
+| **VPN**              | WireGuard                                            |
+| **Smart Home**       | Home Assistant                                       |
+| **Storage**          | TrueNAS, Synology NAS                                |
+| **Cloud**            | Nextcloud                                            |
+| **Documents**        | Paperless-ngx, Invoice Ninja                         |
+| **Media**            | Jellyfin                                             |
+| **DNS**              | AdGuard Home                                         |
+| **Dashboard**        | Homarr                                               |
+| **Telephone**        | 3CX                                                  |
+| **Webhosting**       | WordPress, CloudPanel                                |
+| **Password Manager** | Bitwarden                                            |
+| **Automation**       | Cron Jobs                                            |
+| **Remote desktop Access**    | NoMachine                                            |
+
 
 Openwrt auf altem T
 
