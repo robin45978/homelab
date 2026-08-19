@@ -1,6 +1,6 @@
 #!/bin/bash
 ##      Cloudflare Analytics zu InfluxDB 2.x für Grafana
-##      Quelle: https://github.com/robin45978/homelab/scripts/cloudflare/
+##      Quelle: https://github.com/robin45978/homelab/tree/main/scripts/cloudflare
 
 # Konfiguration für InfluxDB 2.x
 InfluxDBURL=""
