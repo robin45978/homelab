@@ -6,13 +6,13 @@ My guiding principle is to find an open-source solution for everything whenever 
 
 My goal is to build a secure and highly efficient cloud architecture while gaining hands-on experience with various technologies in the fields of networking, virtualization, cloud computing, and cybersecurity.
 
-Translated with DeepL.com (free version)
+
 
 <br>
 
-## Aktueller Tech Stack
+## Current Tech Stack
 
-| Bereich              | Services                                             |
+|  Field               | Services                                             |
 | -------------------- | ---------------------------------------------------- |
 | **Virtualization**   | Proxmox VE (VM & LXC)                                |
 | **Network**          | OPNsense, OpenWRT, Fritz!Box, Netgear Managed Switch |
@@ -45,27 +45,27 @@ Translated with DeepL.com (free version)
 <br>
 <br>
 
-# Meine Hardware Entwicklung – Vom Anfang bis Heute
+# My Hardware Development Journey — From the Beginning to Today
 
-Angefangen hat alles mit einem Raspberry Pi und Ubuntu OS. Dort habe ich meine erste Website damals laufen gehabt. Damals noch mit HTML und CSS selbst programmiert ;)
+It all started with a Raspberry Pi and Ubuntu OS. That’s where I ran my first website back then. At the time, I programmed it myself using HTML and CSS ;)
 
-Das wurde jedoch relativ schnell zu klein und nach langem Herausfinden, wie Betriebssysteme eigentlich auf einem PC laufen und wie man diese installiert, kam der Umstieg zu Proxmox auf einem PC.
+However, that quickly became too limited, and after spending a long time figuring out how operating systems actually run on a PC and how to install them, I switched to Proxmox on a PC.
 
-Die anfänglichen Firewall-Regeln habe ich mit einer Fritzbox und VHosts konfiguriert. Daraufhin folgte eine kleine alte Firewall, wobei ich über den Console-Port pfSense installierte, um diese nutzen zu können.
+I configured the initial firewall rules using a Fritzbox and VHosts. This was followed by a small, old firewall, which I set up by installing pfSense via the console port so I could use it.
 
-Jedoch wurde mit wachsender Anforderung und einem Durchsatz von 100 Mbit/s schnell klar, dass dies nicht mehr ausreichte. Deshalb virtualisierte ich pfSense als VM auf Proxmox und lernte dabei das interne Subnetting.
+However, as demands grew and throughput reached 100 Mbit/s, it quickly became clear that this was no longer sufficient. So I virtualized pfSense as a VM on Proxmox and learned about internal subnetting in the process.
 
-Mit der Zeit folgte dann eine Sophos Firewall, die ich aufgrund einer abgelaufenen Lizenz auf OPNsense umstellte.
+Over time, I added a Sophos firewall, which I later switched to OPNsense due to an expired license.
 
-Das nachfolgende Problem war, dass der PC manchmal wegen Fehlkonfigurationen abstürzte, woraufhin ich High Availability einrichtete. Deshalb kam ein zweiter PC dazu und letztendlich noch ein weiterer, damit auch das Quorum bedient ist.
+The next problem was that the PC would occasionally crash due to configuration issues, so I introduced high availability to improve system reliability. That’s why I added a second PC and finally another one to ensure quorum was met.
 
-Dazu kamen noch mehrere Storage-Systeme, um die gesamten Daten zu speichern.
+I also added several storage systems to store all the data.
 
-Aktuell besteht mein Homelab aus einem Cluster mit 3 Nodes, einer Firewall und mehreren NAS-Systemen im Hintergrund.
+Currently, my home lab consists of a cluster with 3 nodes, a firewall, and several NAS systems running in the background.
 
-Da meine Leitung zwischen den Geräten noch auf 1 Gbit/s begrenzt ist, benutze ich bewusst kein Ceph, sondern stelle die Hochverfügbarkeit über NFS mittels Shared NAS dar. Natürlich hat man nicht alle Vorteile, jedoch ist dies aktuell die beste Lösung für mein Setup.
+Since my connection between the devices is still limited to 1 Gbit/s, I'm avoiding Ceph on purpose and instead using NFS via a shared NAS to ensure high availability. Of course, this doesn't offer all the benefits, but it's currently the best solution for my setup.
 
-Der nächste Schritt wird das Upgrade auf 10 Gbit/s sein. :)
+The next step will be upgrading to 10 Gbit/s. :)
 
 <img width="990" height="598" alt="Proxmox" src="https://github.com/user-attachments/assets/2680800b-98d4-438f-802c-1e9034ecd33c" />
 
@@ -74,70 +74,70 @@ Der nächste Schritt wird das Upgrade auf 10 Gbit/s sein. :)
 <br>
 <br>
 
-# Technologiewechsel
+# Technology Changes
 
-Über die Jahre habe ich einige Technologien durch andere Lösungen ersetzt. Folgend erkläre ich kurz, was mich zu dem Wechsel gebracht hat.
+Over the years, I've replaced some technologies with other solutions. Below, I'll briefly explain what led me to make those changes.
 
-| Früher               | Heute                  | Grund                      |
-| -------------------- | ---------------------- | -------------------------- |
-| Raspberry Pi         | Server / Proxmox       | Mehr Leistung benötigt     |
-| pfSense              | OPNsense               | Open Source / Community    |
-| OpenVPN              | WireGuard              | Performance                |
-| OpenMediaVault       | TrueNAS SCALE          | Storage-Anforderungen      |
-| Pi-hole              | AdGuard Home           | Mehr Filtermöglichkeiten   |
-| Plex                 | Jellyfin               | Kosten                     |
-| Plesk                | CloudPanel             | Open Source                |
-| Self-hosted 3CX      | Externe 3CX Cloud      | Änderung des Lizenzmodells |
-| HAProxy auf OPNsense | Cloudflare Tunnel      | DDoS-Schutz / Zero Trust   |
-| WireGuard auf LXC    | WireGuard auf OPNsense | Bessere Zugriffsverwaltung |
-| XRDP,Spice, NoVNC    | Nomaschine             | Performance                |
+| Previous            | Current               | Reason                       |
+| ------------------- | --------------------- | ---------------------------- |
+| Raspberry Pi        | Server / Proxmox      | More performance needed      |
+| pfSense             | OPNsense              | Open source / community      |
+| OpenVPN             | WireGuard             | Better performance           |
+| OpenMediaVault      | TrueNAS SCALE         | Storage requirements         |
+| Pi-hole             | AdGuard Home          | More filtering options       |
+| Plex                | Jellyfin              | Cost                         |
+| Plesk               | CloudPanel            | Open source                  |
+| Self-hosted 3CX     | External 3CX Cloud    | Licensing model changed      |
+| HAProxy on OPNsense | Cloudflare Tunnel     | DDoS protection / Zero Trust |
+| WireGuard on LXC    | WireGuard on OPNsense | Better access management     |
+| XRDP, SPICE, NoVNC  | NoMachine             | Better performance           |
+
 
 
 ---
 
 <br>
 
-# Zukunft / Vision
+# Future / Vision
 
-Das Tolle an dieser Welt ist, dass wirklich keine Grenzen gesetzt sind. Egal,
-wie viele Stunden man in sein Homelab reinsteckt, einem fällt immer wieder
-etwas Neues ein, was man verbessern kann.
+The great thing about this world is that there really are no limits. No matter
+how many hours you put into your home lab, you’ll always come up with
+something new that you can improve.
 
-Mir ist bewusst, dass ich nebenbei und alleine natürlich kein gesamtes
-Enterprise-System aufsetzen kann. Jedoch finde ich es unglaublich interessant,
-mit der Zeit zu gehen und immer wieder mein Setup zu optimieren, der Zeit
-anzupassen und mein eigenes Wissen zu erweitern.
+I realize that, obviously, I can’t set up an entire
+enterprise system on my own in my spare time. However, I find it incredibly interesting to
+keep up with trends and continually optimize my setup, adapting it to the times
+and expanding my own knowledge.
 
-Durch meinen speziellen Fokus auf Cybersecurity versuche ich immer besser,
-alles zu überwachen und gleichzeitig durch aktives Testen(z.B. mittels Burpsuite oder nmap) Sicherheitslücken in
-meinem eigenen System zu finden.
-
-<br>
-
-# Cybersecurity Ziele
-
-Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten anzupassen. Dabei orientiere ich mich an etablierten Sicherheitsstandards und -konzepten wie ISO/IEC 27001 und dem BSI IT-Grundschutz, insbesondere BSI 200-4. Mir geht es hierbei darum, Sichehetskonzepte selbst in kleinem Mass umzusetzen und natürlich die CIA Ziele zu erfüllen.
+With my specific focus on cybersecurity, I’m constantly trying to get better at
+monitoring everything while simultaneously using active testing (e.g., with Burp Suite or nmap) to find security vulnerabilities in
+my own system.
 
 <br>
 
-# Projekte
+# Cybersecurity Goals
 
+My long-term plan is to adapt my home lab closely to current security concepts. In order to do so, I’m guided by established security standards and concepts such as ISO/IEC 27001 and the BSI IT-Grundschutz, particularly BSI 200-4. My goal here is to implement security concepts even on a small scale and, of course, to meet the CIA objectives.
 
-Anbei stelle ich noch ein paar Projekte vor, die ich umgesetzt habe.
+<br>
+
+# Projects
+
+Here are a few more projects I’ve worked on.
 
 ## Security Onion
 
-Security Onion ist aktuell einer der wichtigsten Bestandteile meines Security-Setups.
+Security Onion is currently one of the most important components of my security setup.
 
-Der Netzwerkverkehr wird über meinen Managed Switch geleitet. Über Port Mirroring wird der Traffic auf einen Monitoring-Port gespiegelt.
+The network traffic is routed through my managed switch. Through port mirroring, the traffic is mirrored to a monitoring port.
 
-An diesem Port hängt das Monitoring-Interface von Security Onion.
+The Security Onion monitoring interface is connected to this port.
 
-Dadurch kann Security Onion den Netzwerkverkehr analysieren.
+This allows Security Onion to analyze the network traffic.
 
 Test:
-Die Funktion habe ich unter anderem mit einem Nmap-Scan auf einen internen LXC getestet.
-Der Scan wurde anschließend innerhalb von Security Onion erkannt und als Gefahr eingestuft.
+I tested the feature using an Nmap scan on an internal LXC.
+The scan was subsequently detected by Security Onion and classified as a threat.
 
 
 <img width="898" height="487" alt="SecurityOnion" src="https://github.com/user-attachments/assets/d928edd7-ce9e-4123-9673-c1258191e5c0" />
@@ -145,14 +145,14 @@ Der Scan wurde anschließend innerhalb von Security Onion erkannt und als Gefahr
 
 
 
-## Cloudflare Logs in Grafana visualisieren
+## Visualizing Cloudflare Logs in Grafana
 
-Ich habe ein Bash-Script entwickelt, das über die Cloudflare API
-die Logs abruft. Ein Cronjob führt dieses Script täglich aus.
+I've developed a Bash script that retrieves the logs via the Cloudflare API.
+A cron job runs this script daily.
 
-Die Logs werden anschließend in einen InfluxDB Bucket geschrieben und von
-Grafana abgerufen. Dadurch kann ich Zugriffe und Angriffe auf meine Websites
-visualisieren, da die Anfragen zunächst bei Cloudflare ankommen.
+The logs are then written to an InfluxDB bucket and retrieved by
+Grafana. This allows me to visualize traffic and attacks on my websites,
+since the requests first arrive at Cloudflare.
 
 <img width="917" height="558" alt="Grafana" src="https://github.com/user-attachments/assets/00db953c-e665-4765-87f8-95b7006a06c5" />
 <img width="860" height="511" alt="Grafana 2" src="https://github.com/user-attachments/assets/1390da3e-0b0f-4b03-9a65-a40a538fce65" />
@@ -162,11 +162,11 @@ visualisieren, da die Anfragen zunächst bei Cloudflare ankommen.
 
 ## TrueNAS Scale:
 
-Da ich sehr viele HDD-Platten übrig hatte, habe ich diese über einen Proxmox-Node direkt an TrueNAS SCALE durchgereicht. Mittels RAID 1 habe ich so mehrere Terabyte Speicherplatz zur Verfügung.
+Since I had a lot of spare HDDs, I connected them directly to TrueNAS Scale via a Proxmox node. Using RAID 1, I now have several terabytes of storage space available.
 
-Auf TrueNAS laufen unter anderem Nextcloud und Jellyfin. Die entsprechenden Datasets werden zusätzlich per rsync auf ein externes Speichergerät gesichert.
+Among other things, Nextcloud and Jellyfin run on TrueNAS. The corresponding datasets are also backed up to an external storage device via rsync.
 
-Der Grund, warum ich hierfür nicht Proxmox Backup nutze, ist der zusätzliche Speicherbedarf, den ich in meinem Setup vermeiden möchte.
+The reason I don’t use Proxmox Backup for this is the additional storage space it requires, which I want to avoid in my setup.
 
 
 <img width="914" height="461" alt="TrueNAS" src="https://github.com/user-attachments/assets/c526829b-7216-4d55-a03b-5a65e9cf07f7" />
@@ -174,41 +174,41 @@ Der Grund, warum ich hierfür nicht Proxmox Backup nutze, ist der zusätzliche S
 
 
 
-## Geplantes Projekt:  Active Directory Lab
-Da ich bereits viel Erfahrung im Netzwerk-, Firewall- und Linux-Bereich habe,
-möchte ich mich als Nächstes im Windows-Umfeld weiterentwickeln.
+## Planned Project: Active Directory Lab
+Since I already have a lot of experience with networks, firewalls, and Linux,
+I would like to focus on developing my skills in the Windows environment next.
 
-Mein Ziel ist es, ein kleines Test-Lab aufzusetzen, um eine Windows-Enterprise-
-Umgebung besser zu verstehen.
+My goal is to set up a small test lab to gain a better understanding of a Windows Enterprise
+environment.
 
 <br>
 
 # Roadmap
 
-### 🌐 Netzwerk
-- [ ] Subnetze und Segmentierung erweitern
-- [ ] Upgrade auf 10 Gbit/s
+### 🌐 Network
+- [ ] Expand subnets and segmentation
+- [ ] Upgrade to 10 Gbit/s
 
 ### ⚙️ Automation
 - [ ] Ansible
 - [ ] n8n
-- [ ] Automatisierte Updates
+- [ ] Automated updates
 
 ### 🔐 IAM
 - [ ] Authentik / SSO
-- [ ] Zentrale Benutzer- und Rechteverwaltung
+- [ ] Centralized user and permissions management
 
 ### 🛡️ Security
-- [ ] Security Onion Alerts optimieren
-- [ ] Zentrale Security Alerts
+- [ ] Optimize SecurityOnion alerts
+- [ ] Centralized security alerts
 
 ### 🖥️ Infrastructure
 - [ ] Kubernetes / K3s
-- [ ] Homelab erweitern
+- [ ] Expand home lab
 
 ### 📚 Documentation
-- [ ] Netzwerk und Infrastruktur vollständig dokumentieren
-- [ ] Backup & Recovery dokumentieren
+- [ ] Fully document network and infrastructure
+- [ ] Document backup & recovery
 
 <br>
 
@@ -219,6 +219,7 @@ Umgebung besser zu verstehen.
 
 <br>
 
-**Hinweis:** Zum Schutz der IT-Sicherheit meines Homelabs  werden einige Informationen und Konfigurationen
-nicht öffentlich dokumentiert.
+**Note:** To protect the IT security of my home lab, some information and configurations
+are not publicly documented.
+
 
