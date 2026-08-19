@@ -11,6 +11,8 @@ Mein Ziel ist es, eine sichere und möglichst effiziente Cloud-Architektur
 aufzubauen und dabei gleichzeitig verschiedene Technologien aus den Bereichen
 Networking, Virtualisierung, Cloud und Cybersecurity praktisch zu erlernen.
 
+<br>
+
 ## 🛠️ Aktueller Tech Stack
 
 | Bereich              | Services                                             |
@@ -35,7 +37,7 @@ Networking, Virtualisierung, Cloud und Cybersecurity praktisch zu erlernen.
 | **Automation**       | Cron Jobs                                            |
 | **Remote desktop Access**    | NoMachine                                            |
 
-
+<br>
 
 # Dashboard
 <img width="905" height="532" alt="Dashboard " src="https://github.com/user-attachments/assets/c64e82f9-c2a9-418f-a52d-40040254f485" />
@@ -43,9 +45,8 @@ Networking, Virtualisierung, Cloud und Cybersecurity praktisch zu erlernen.
 <img width="901" height="524" alt="Dashboard 2" src="https://github.com/user-attachments/assets/d0f3a847-2c22-4ec9-b25b-9c86f8330c01" />
 
 
-
-
-
+<br>
+<br>
 
 # Meine Hardware Entwicklung – Vom Anfang bis Heute
 
@@ -63,7 +64,7 @@ Das nachfolgende Problem war, dass der PC manchmal wegen Fehlkonfigurationen abs
 
 Dazu kamen noch mehrere Storage-Systeme, um die gesamten Daten zu speichern.
 
-Aktuell besteht mein Homelab aus 3 Nodes mit mehreren NAS-Systemen im Hintergrund.
+Aktuell besteht mein Homelab aus einem Cluster mit 3 Nodes, einer Firewall und mehreren NAS-Systemen im Hintergrund.
 
 Da meine Leitung zwischen den Geräten noch auf 1 Gbit/s begrenzt ist, benutze ich bewusst kein Ceph, sondern stelle die Hochverfügbarkeit über NFS mittels Shared NAS dar. Natürlich hat man nicht alle Vorteile, jedoch ist dies aktuell die beste Lösung für mein Setup.
 
@@ -72,9 +73,9 @@ Der nächste Schritt wird das Upgrade auf 10 Gbit/s sein. :)
 
 
 
+<br>
 
-
-# 🔄 Technologiewechsel
+# Technologiewechsel
 
 Über die Jahre habe ich einige Technologien durch andere Lösungen ersetzt. Folgend erkläre ich kurz, was mich zu dem Wechsel gebracht hat.
 
@@ -95,63 +96,44 @@ Der nächste Schritt wird das Upgrade auf 10 Gbit/s sein. :)
 
 ---
 
+<br>
 
-# 🚀 Zukunft / Vision
+# Zukunft / Vision
 
-Das tolle an in dieser welt ist, dass wirklich  keine Grenzen gesetzt sind. Egal wieviele Stunden man in sei Homelap reinsteckt, einem fällt immer wieder was neues ein, was man verbessern kann. Mir ist bewusst, dass ich nebenbei und alleine natuürlich kein gesamten Enterprise System aufsetzten kann. Jedoch finde ich es unheilich interessant mit der Zret zu gehen und immer wieder mein Setup zu optimieren, der Zeit anzupassen und mein eigenes Wissen erweitern. durxh meinen speziellen Fokus auf Cybersecurity versuche ich immer besser alles zu überwachen und gleichzeitig durch aktives Testen Sichetheitslücken in meinem eigenen System zu finden.
+Das Tolle an dieser Welt ist, dass wirklich keine Grenzen gesetzt sind. Egal,
+wie viele Stunden man in sein Homelab reinsteckt, einem fällt immer wieder
+etwas Neues ein, was man verbessern kann.
 
-## Netzwerk
+Mir ist bewusst, dass ich nebenbei und alleine natürlich kein gesamtes
+Enterprise-System aufsetzen kann. Jedoch finde ich es unglaublich interessant,
+mit der Zeit zu gehen und immer wieder mein Setup zu optimieren, der Zeit
+anzupassen und mein eigenes Wissen zu erweitern.
 
-* [ ] Interne Subnetze erweitern
-* [ ] Netzwerksegmentierung verbessern
+Durch meinen speziellen Fokus auf Cybersecurity versuche ich immer besser,
+alles zu überwachen und gleichzeitig durch aktives Testen Sicherheitslücken in
+meinem eigenen System zu finden.
 
-## Automation
+<br>
 
-* [ ] Ansible einrichten
-* [ ] Updates automatisieren
-* [ ] n8n für bestimmte Workflows einsetzen
+# Cybersecurity Ziele
 
-## IAM
+Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten anzupassen. Dabei fokusiere ich mich bereits an dem ISO 27001 und an dem BSI IT-Grundschutz (v.a BSI-200-4) . Mir geht es hierbei darum, Sichehetskonzepte selbst in kleinem Mass umzusetzen und natürlich die CIA Ziele zu erfüllen.
 
-* [ ] Authentik einrichten
-* [ ] SSO für ausgewählte interne Services
-* [ ] Zentrale Authentifizierung
-* [ ] Rollen und Berechtigungen zentral verwalten
-
-## Security
-
-* [ ] Security Onion Alerts optimieren
-* [ ] False Positives reduzieren
-* [ ] Security Onion / Wazuh weiter integrieren
-* [ ] Security Alerts zentral sammeln
-* [ ] Alerts über Discord Webhooks ausgeben
-
-## Infrastructure
-
-* [ ] Kubernetes / K3s testen(erfodert Erweiterung meines aktuellen Homelabs)
-* [ ] Homelab Hardware erweitern
-
-## Documentation
-
-* [ ] Netzwerk vollständig dokumentieren
-* [ ] Backup- und Recovery-Konzept dokumentieren
-* [ ] Änderungen und wichtige Entscheidungen dokumentieren
-
----
-
-# 🛡️ Cybersecurity Ziele
-
-Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten anzupassen. Dabei werde ich mich zunächst auf das ISO 27001 und auf den BSI IT-Grundschutz (v.a BSI-200-4) fokusieren. Mir geht es hierbei darum, Sichehetskonzepte selbst in kleinem Mass umzusetzen. 
-
+<br>
 
 # Projekte
 
 
 Anbei stelle ich noch ein paar Projekte vor, die ich umgesetzt habe.
 
-## Projekt:cloudflarelogs in Grafana virtualisieren.
-MitHilfe von Ki ein Script geschrieben,d ass über Cloudflare Api die Logs abruft. Cronjob führt dieses Script täglich aus 
-Die Logs werden dsann inInfluxDb Bucket geschrieben und Grafana ruft diese dann ab. dadurch werden Angriffe auf die Websiten visualsiert, da die Zugriffe ja nur bei Cloudflare ankommen
+## Cloudflare Logs in Grafana visualisieren
+
+Mit Hilfe von KI habe ich ein Script geschrieben, das über die Cloudflare API
+die Logs abruft. Ein Cronjob führt dieses Script täglich aus.
+
+Die Logs werden anschließend in einen InfluxDB Bucket geschrieben und von
+Grafana abgerufen. Dadurch kann ich Zugriffe und Angriffe auf meine Websites
+visualisieren, da die Anfragen zunächst bei Cloudflare ankommen.
 
 <img width="917" height="558" alt="Grafana" src="https://github.com/user-attachments/assets/00db953c-e665-4765-87f8-95b7006a06c5" />
 <img width="860" height="511" alt="Grafana 2" src="https://github.com/user-attachments/assets/1390da3e-0b0f-4b03-9a65-a40a538fce65" />
@@ -175,7 +157,7 @@ Porjekt openwrt auf tplink router.
 <img width="990" height="598" alt="Proxmox" src="https://github.com/user-attachments/assets/2680800b-98d4-438f-802c-1e9034ecd33c" />
 
 
-Zum Schutz der It Sichehreit meine Homelabs kann ich nur sehr begrenzt Screenshots und Hinweise über den genauen Aufbau meines Netzwerkes geben.
+
 
 
 OpenWRT
@@ -183,8 +165,51 @@ OpenWRT
 Proxmox
 
 ## Geplantes Projekt:  Active Directory Lab
-Da ich bereits sehr tief im Netwerkbereich, Firewall und Linux Beeich drinnen bin, möchte ich mich als nächstes im Windows Umfeld verbessern. Mein Ziel ist e ein kleines Test Lap aufzusetzen um die windows enterprsie umgebung besser zu verstehen 
+Da ich bereits viel Erfahrung im Netzwerk-, Firewall- und Linux-Bereich habe,
+möchte ich mich als Nächstes im Windows-Umfeld weiterentwickeln.
+
+Mein Ziel ist es, ein kleines Test-Lab aufzusetzen, um eine Windows-Enterprise-
+Umgebung besser zu verstehen.
+
+<br>
+
+# Roadmap
+
+### 🌐 Netzwerk
+- [ ] Subnetze und Segmentierung erweitern
+- [ ] Upgrade auf 10 Gbit/s
+
+### ⚙️ Automation
+- [ ] Ansible
+- [ ] n8n
+- [ ] Automatisierte Updates
+
+### 🔐 IAM
+- [ ] Authentik / SSO
+- [ ] Zentrale Benutzer- und Rechteverwaltung
+
+### 🛡️ Security
+- [ ] Security Onion Alerts optimieren
+- [ ] Wazuh wieder integrieren
+- [ ] Zentrale Security Alerts
+
+### 🖥️ Infrastructure
+- [ ] Kubernetes / K3s
+- [ ] Homelab erweitern
+
+### 📚 Documentation
+- [ ] Netzwerk und Infrastruktur vollständig dokumentieren
+- [ ] Backup & Recovery dokumentieren
+
+<br>
+
+# Contact
+- LinkedIn: Robin Lorenz
+- GitHub: robin45978
 
 
+<br>
 
+**Hinweis:** Zum Schutz der IT-Sicherheit meines Homelabs  werden einige Informationen und Konfigurationen
+nicht öffentlich dokumentiert.
 
