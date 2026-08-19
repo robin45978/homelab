@@ -1,4 +1,4 @@
-# Homelab als Cybersecurity-Lern- und Testumgebung
+# Homelab als Cybersecurity Lern- und Testumgebung
 In diesem Repository möchte ich mein Homelab dokumentieren. Dabei gehe ich auf
 meine aktuelle Umsetzung, die Entwicklung über fast 10 Jahre sowie meine Ziele
 und Visionen für die Zukunft ein.
