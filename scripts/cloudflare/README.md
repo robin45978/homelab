@@ -1,4 +1,4 @@
-## Cloudflare Analytics → InfluxDB
+## Cloudflare Analytics -> InfluxDB -> Grafana
 
 Das Script ruft Cloudflare-Analytics der letzten 7 Tage über die GraphQL API ab und schreibt die Daten in **InfluxDB 2.x** zur Visualisierung in Grafana.
 
