@@ -112,7 +112,7 @@ mit der Zeit zu gehen und immer wieder mein Setup zu optimieren, der Zeit
 anzupassen und mein eigenes Wissen zu erweitern.
 
 Durch meinen speziellen Fokus auf Cybersecurity versuche ich immer besser,
-alles zu überwachen und gleichzeitig durch aktives Testen Sicherheitslücken in
+alles zu überwachen und gleichzeitig durch aktives Testen(z.B. mittels Burpsuite oder nmap) Sicherheitslücken in
 meinem eigenen System zu finden.
 
 <br>
