@@ -1,4 +1,4 @@
-# Homelab
+# Homelab als Cybersecurity-Lern- und Testumgebung
 In diesem Repository möchte ich mein Homelab dokumentieren. Dabei gehe ich auf
 meine aktuelle Umsetzung, die Entwicklung über fast 10 Jahre sowie meine Ziele
 und Visionen für die Zukunft ein.
@@ -13,7 +13,7 @@ Networking, Virtualisierung, Cloud und Cybersecurity praktisch zu erlernen.
 
 <br>
 
-## 🛠️ Aktueller Tech Stack
+## Aktueller Tech Stack
 
 | Bereich              | Services                                             |
 | -------------------- | ---------------------------------------------------- |
@@ -119,7 +119,7 @@ meinem eigenen System zu finden.
 
 # Cybersecurity Ziele
 
-Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten anzupassen. Dabei fokusiere ich mich bereits an dem ISO 27001 und an dem BSI IT-Grundschutz (v.a. BSI-200-4) . Mir geht es hierbei darum, Sichehetskonzepte selbst in kleinem Mass umzusetzen und natürlich die CIA Ziele zu erfüllen.
+Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten anzupassen. Dabei orientiere ich mich an etablierten Sicherheitsstandards und -konzepten wie ISO/IEC 27001 und dem BSI IT-Grundschutz, insbesondere BSI 200-4. Mir geht es hierbei darum, Sichehetskonzepte selbst in kleinem Mass umzusetzen und natürlich die CIA Ziele zu erfüllen.
 
 <br>
 
@@ -150,7 +150,7 @@ Der Scan wurde anschließend innerhalb von Security Onion erkannt und als Gefahr
 
 ## Cloudflare Logs in Grafana visualisieren
 
-Mit Hilfe von KI habe ich ein Script geschrieben, das über die Cloudflare API
+Ich habe ein Bash-Script entwickelt, das über die Cloudflare API
 die Logs abruft. Ein Cronjob führt dieses Script täglich aus.
 
 Die Logs werden anschließend in einen InfluxDB Bucket geschrieben und von
@@ -176,20 +176,6 @@ Der Grund, warum ich hierfür nicht Proxmox Backup nutze, ist der zusätzliche S
 
 
 
-
-
-
-
-Porjekt openwrt auf tplink router.
-
-
-
-
-
-
-OpenWRT
-
-Proxmox
 
 ## Geplantes Projekt:  Active Directory Lab
 Da ich bereits viel Erfahrung im Netzwerk-, Firewall- und Linux-Bereich habe,
@@ -217,7 +203,6 @@ Umgebung besser zu verstehen.
 
 ### 🛡️ Security
 - [ ] Security Onion Alerts optimieren
-- [ ] Wazuh wieder integrieren
 - [ ] Zentrale Security Alerts
 
 ### 🖥️ Infrastructure
