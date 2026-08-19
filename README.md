@@ -70,9 +70,11 @@ Da meine Leitung zwischen den Geräten noch auf 1 Gbit/s begrenzt ist, benutze i
 
 Der nächste Schritt wird das Upgrade auf 10 Gbit/s sein. :)
 
+<img width="990" height="598" alt="Proxmox" src="https://github.com/user-attachments/assets/2680800b-98d4-438f-802c-1e9034ecd33c" />
 
 
 
+<br>
 <br>
 
 # Technologiewechsel
@@ -117,7 +119,7 @@ meinem eigenen System zu finden.
 
 # Cybersecurity Ziele
 
-Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten anzupassen. Dabei fokusiere ich mich bereits an dem ISO 27001 und an dem BSI IT-Grundschutz (v.a BSI-200-4) . Mir geht es hierbei darum, Sichehetskonzepte selbst in kleinem Mass umzusetzen und natürlich die CIA Ziele zu erfüllen.
+Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten anzupassen. Dabei fokusiere ich mich bereits an dem ISO 27001 und an dem BSI IT-Grundschutz (v.a. BSI-200-4) . Mir geht es hierbei darum, Sichehetskonzepte selbst in kleinem Mass umzusetzen und natürlich die CIA Ziele zu erfüllen.
 
 <br>
 
@@ -125,6 +127,26 @@ Mein Plan ist es langfristig mein Homelab stark an aktuelle Security-Konzepten a
 
 
 Anbei stelle ich noch ein paar Projekte vor, die ich umgesetzt habe.
+
+## Security Onion
+
+Security Onion ist aktuell einer der wichtigsten Bestandteile meines Security-Setups.
+
+Der Netzwerkverkehr wird über meinen Managed Switch geleitet. Über Port Mirroring wird der Traffic auf einen Monitoring-Port gespiegelt.
+
+An diesem Port hängt das Monitoring-Interface von Security Onion.
+
+Dadurch kann Security Onion den Netzwerkverkehr analysieren.
+
+Test:
+Die Funktion habe ich unter anderem mit einem Nmap-Scan auf einen internen LXC getestet.
+Der Scan wurde anschließend innerhalb von Security Onion erkannt und als Gefahr eingestuft.
+
+
+<img width="898" height="487" alt="SecurityOnion" src="https://github.com/user-attachments/assets/d928edd7-ce9e-4123-9673-c1258191e5c0" />
+
+
+
 
 ## Cloudflare Logs in Grafana visualisieren
 
@@ -141,20 +163,25 @@ visualisieren, da die Anfragen zunächst bei Cloudflare ankommen.
 
 
 
-Projekt securityOnion:
-Der gesamte Netzwerk verkehr wird über den maaged switch geleitet. dabei wird der traffik uf einnen monitoring port gespiegelt, sodass securityonion den gesamten netwertkverkehr mitlesen kann, Erfolgreich getesett durch nmap scan auf einen internen lxc.
+## TrueNAS Scale:
 
-Project TrueNAS Scale:
-Da ich sehr viele HDD Platten übrig hatte, habe ich diese über ein Proxmox Node direkt in TrueNAs Sclae durchgereciht. mittels raid 1 sind ahabe ich so mehrere terrabyte speicherplatz zur verfügung. dort laufen auch nextcloud und jellyfin drauf diese datasets werden mittels rsync auf ein externen speichergerät zusätlich gesichtert der grund wieso ich nicht dad proxmox backup nutze idt der verschendetete speicher.
+Da ich sehr viele HDD-Platten übrig hatte, habe ich diese über einen Proxmox-Node direkt an TrueNAS SCALE durchgereicht. Mittels RAID 1 habe ich so mehrere Terabyte Speicherplatz zur Verfügung.
+
+Auf TrueNAS laufen unter anderem Nextcloud und Jellyfin. Die entsprechenden Datasets werden zusätzlich per rsync auf ein externes Speichergerät gesichert.
+
+Der Grund, warum ich hierfür nicht Proxmox Backup nutze, ist der zusätzliche Speicherbedarf, den ich in meinem Setup vermeiden möchte.
+
+
+<img width="914" height="461" alt="TrueNAS" src="https://github.com/user-attachments/assets/c526829b-7216-4d55-a03b-5a65e9cf07f7" />
 
 
 
-Project VPN:
-Während ich früher auf opnvpn gesetzt habe, habe ich nach veröffentlichung von wiregaurd direkt umgstellt. zunächst lief es auf einer lxc aber da mir hier die zugriffsverwahltung nicht gefallen hat, laufen jetzt verscheiden wiregaurd server in unterscheidlichen subnetzen direkt auf der opmsense firewall.
+
+
+
 
 Porjekt openwrt auf tplink router.
 
-<img width="990" height="598" alt="Proxmox" src="https://github.com/user-attachments/assets/2680800b-98d4-438f-802c-1e9034ecd33c" />
 
 
 
