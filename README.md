@@ -1,15 +1,12 @@
-# Homelab als Cybersecurity Lern- und Testumgebung
-In diesem Repository möchte ich mein Homelab dokumentieren. Dabei gehe ich auf
-meine aktuelle Umsetzung, die Entwicklung über fast 10 Jahre sowie meine Ziele
-und Visionen für die Zukunft ein.
+# Homelab as a Cybersecurity Learning and Testing Environment
 
-Mein Grundsatz ist dabei, möglichst für alles eine Open-Source-Lösung zu finden.
-Deshalb teste ich viele verschiedene Tools und Technologien und entscheide
-anschließend, welche Lösung am besten zu meinem Setup passt.
+In this repository, I’d like to document my home lab. I’ll cover my current setup, its development over nearly 10 years, and my goals and visions for the future.
 
-Mein Ziel ist es, eine sichere und möglichst effiziente Cloud-Architektur
-aufzubauen und dabei gleichzeitig verschiedene Technologien aus den Bereichen
-Networking, Virtualisierung, Cloud und Cybersecurity praktisch zu erlernen.
+My guiding principle is to find an open-source solution for everything whenever possible. That’s why I test many different tools and technologies and then decide which solution best fits my setup.
+
+My goal is to build a secure and highly efficient cloud architecture while gaining hands-on experience with various technologies in the fields of networking, virtualization, cloud computing, and cybersecurity.
+
+Translated with DeepL.com (free version)
 
 <br>
 
