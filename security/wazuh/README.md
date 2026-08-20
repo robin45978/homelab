@@ -28,6 +28,10 @@ Wazuh automatically assigns severity levels to detected events:
 
 I use these levels to prioritize security events instead of treating every log entry as an incident.
 
+
+<img width="3367" height="1266" alt="Wazuh" src="https://github.com/user-attachments/assets/17f6d16d-1a18-443e-bcd7-2dcfb925f2c5" />
+
+
 ### OPNsense Syslog Integration
 
 For **OPNsense**, I don't install a Wazuh Agent because it is an appliance. Instead, I forward its logs directly to the Wazuh Manager using Syslog.
