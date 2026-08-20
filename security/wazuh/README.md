@@ -85,6 +85,7 @@ Wazuh can directly receive Syslog events from network devices, firewalls and oth
 
 The Wazuh Manager is configured as a Syslog receiver using TCP port `514`.
 
+The `<remote>` section needs to be extended. Under `<allowed-ips>`, the IP address or subnet of the device sending the Syslog data must be added. If Syslog sources are located in different networks, multiple `<allowed-ips>` entries can be configured.
 ```xml
 <!-- /var/ossec/etc/ossec.conf -->
 
