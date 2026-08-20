@@ -186,7 +186,7 @@ environment.
 # Roadmap
 
 ### 🌐 Network
-- [ ] Expand subnets and segmentation
+- [x] Expand subnets and segmentation
 - [ ] Upgrade to 10 Gbit/s
 
 ### ⚙️ Automation
@@ -195,8 +195,7 @@ environment.
 - [ ] Automated updates
 
 ### 🔐 IAM
-- [ ] Authentik / SSO
-- [ ] Centralized user and permissions management
+- [ ] Authentik 
 
 ### 🛡️ Security
 - [ ] Optimize SecurityOnion alerts
@@ -208,7 +207,7 @@ environment.
 
 ### 📚 Documentation
 - [ ] Fully document network and infrastructure
-- [ ] Document backup & recovery
+- [x] Document backup & recovery
 
 <br>
 
