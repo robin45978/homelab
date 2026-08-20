@@ -1,0 +1,69 @@
+# Environment files with secrets
+.env
+*.env
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# OS files
+.DS_Store
+Thumbs.db
+*~
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# MkDocs build output
+site/
+
+# Docker
+docker-compose.override.yml
+
+# Restic
+.restic/
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Ansible
+*.retry
+
+# Private / personal files
+private/
+
+# Claude Code files
+CLAUDE.md
+.claude/
+.codex/
+
+# Private keys
+*.key
+*.pem
+*.ppk
+id_rsa*
+!id_rsa.pub.example
+
+# Tooling caches
+.firecrawl/
+.memsearch/
+.superpowers/
+.playwright/
+.playwright-cli/
+__pycache__/
