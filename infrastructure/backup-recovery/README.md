@@ -1,42 +1,27 @@
-
-
 # Homelab Backup & Disaster Recovery Architecture
 
-This documentation describes the backup and disaster recovery strategy used in my homelab.
+This documentation describes the backup and disaster recovery setup of my homelab.
 
-The main goals are:
-
-- Protect critical services and data
-- Reduce backup storage and I/O usage
-- Maintain multiple recovery points
-- Protect backups against accidental deletion and ransomware
-- Keep rebuildable systems lightweight
-- Provide a clear recovery path after a system failure
-
-The backup architecture is based on the 3-2-1 backup principle with additional network segmentation and snapshot-based protection.
+The setup is built around my Proxmox cluster, Synology NAS and Hetzner S3 storage. I mainly use this architecture to keep multiple recovery points while protecting the backups themselves against accidental deletion, ransomware and a complete loss of the local environment.
 
 ---
 
 ## 1. Proxmox Backup Tiering
 
-Not every VM or LXC requires the same backup frequency.
-
-I therefore classify my systems into three backup tiers based on their importance, stored data and how easily they can be rebuilt.
+I do not back up every VM and LXC with the same retention. The systems are split into three tiers depending on how important they are and how difficult they would be to rebuild.
 
 ### 🔴 Tier 1 – Critical
 
-These systems contain important production services or data and receive the highest backup priority.
+These systems run important services or contain data I do not want to lose.
 
 ```text
 Docker
-Wazuh
 CloudPanel
 TrueNAS
 Paperless
 InvoiceNinja
 Cloudflare
-Rocrail
-````
+```
 
 ### Retention
 
@@ -47,15 +32,18 @@ Keep Weekly:    8
 Keep Monthly:  12
 ```
 
-These systems are backed up frequently because data loss or a long outage would have a significant impact.
+These systems get the longest retention because restoring them quickly is more important than saving storage space.
 
 ---
 
 ### 🟠 Tier 2 – Important
 
-Tier 2 is used for systems that are important but do not require the same long-term retention as Tier 1.
+These systems are important for my security and infrastructure, but are easier to rebuild than the Tier 1 systems.
 
-For example, systems with important configuration but lower data criticality can be placed here.
+```text
+Wazuh
+Rocrail
+```
 
 ### Retention
 
@@ -66,13 +54,13 @@ Keep Weekly:    2
 Keep Monthly:   4
 ```
 
-This provides several recovery points while keeping storage usage under control.
+This gives me several recovery points without keeping large amounts of older backups.
 
 ---
 
 ### 🟢 Tier 3 – Rebuildable
 
-These systems are primarily used for testing, pentesting, security analysis or desktop workloads.
+These systems are mainly used for testing, pentesting, security analysis or desktop workloads.
 
 ```text
 Security Onion
@@ -82,9 +70,9 @@ Windows 11
 Ubuntu Desktop
 ```
 
-These systems can generally be rebuilt from installation media and configuration backups.
+I do not keep many full backups of these systems because they can be rebuilt relatively easily.
 
-Because Security Onion can generate large amounts of data, full VM backups are kept to a minimum.
+Security Onion is also intentionally kept to a minimum because the VM can generate a large amount of data.
 
 ### Retention
 
@@ -95,26 +83,15 @@ Keep Weekly:    1
 Keep Monthly:   1
 ```
 
-The goal is to keep a recent recovery point without using large amounts of storage for historical full VM backups.
-
-
+The idea is simply to have a recent recovery point without wasting backup storage on historical copies of systems that I can rebuild.
 
 <img width="2678" height="1062" alt="Backup-Recovery" src="https://github.com/user-attachments/assets/a8733edc-f92a-4ffd-bca2-f286398538e9" />
-
 
 ---
 
 # 2. 3-2-1 Backup Architecture
 
-The homelab follows the **3-2-1 backup principle**:
-
-```text
-3 copies of important data
-2 different storage locations/media
-1 copy isolated from the primary environment
-```
-
-The architecture consists of:
+My backup setup follows the **3-2-1 principle**, with an additional focus on protecting the backup copies themselves.
 
 ```text
 Production
@@ -126,15 +103,15 @@ Proxmox
     └── LXCs
     │
     ▼
-Local Backup NAS
+Synology NAS
     │
     ▼
-Offsite Backup NAS
+Hetzner S3
 ```
 
 ### Primary Data
 
-Production workloads run on the local Proxmox infrastructure.
+My production workloads run on the local Proxmox infrastructure.
 
 ```text
 Proxmox
@@ -142,13 +119,13 @@ Proxmox
 └── LXC Containers
 ```
 
-TrueNAS and the shared SSD storage provide additional production storage for services such as Nextcloud and Jellyfin.
+TrueNAS provides additional storage for services such as Nextcloud and Jellyfin.
 
 ---
 
 ### Local Backup
 
-Proxmox performs scheduled backups of VMs and LXC containers to the local Synology NAS.
+Proxmox creates scheduled VM and LXC backups and stores them on my Synology NAS.
 
 ```text
 Proxmox
@@ -158,207 +135,75 @@ Proxmox
 Synology NAS
 ```
 
-The retention policy depends on the assigned backup tier.
+The retention depends on the backup tier described above.
+
+The Synology copy is my main recovery source because it is local and therefore much faster to restore from than the offsite copy.
 
 ---
 
 ### Offsite Backup
 
-Important backups are replicated to a second Synology NAS located at a separate physical location.
+The Synology NAS then replicates the backups to **Hetzner S3** using Hyper Backup.
 
 ```text
-Local Synology NAS
-        │
-        │ Backup Replication
-        ▼
-Remote Synology NAS
-```
-
-This protects against local hardware failure, theft, fire and other site-level incidents.
-
----
-
-# 3. Network Security & Ransomware Protection
-
-A remote backup system should not simply be exposed as another network share.
-
-The connection between the two locations is therefore isolated using a **site-to-site VPN**.
-
-```text
-Site A
-Proxmox
-   │
 Synology NAS
-   │
-   │
-   │ Site-to-Site VPN
-   │
-   ▼
-Site B
-Synology NAS
+    │
+    │ Hyper Backup
+    ▼
+Hetzner S3
 ```
 
-OPNsense controls the communication between the two networks.
+I chose Hetzner mainly for the offsite separation and because the S3 storage supports the features I need for protecting the backup data.
 
-Firewall rules restrict the VPN connection to only the services required for backup replication.
-
-Unnecessary protocols such as:
-
-```text
-SMB
-NFS
-```
-
-are not exposed across the VPN.
-
-Only the required backup services and ports are permitted.
+The local backup is primarily for fast recovery. The Hetzner copy is there for cases where the local infrastructure or NAS is no longer available.
 
 ---
 
-# 4. Snapshot & Ransomware Protection
+## S3 Versioning & Object Lock
 
-The remote backup system uses **Btrfs snapshots** to maintain historical recovery points.
+The Hetzner S3 bucket uses **Versioning** and **Object Lock**.
 
-Snapshots provide an additional protection layer against:
+Versioning keeps previous versions of objects, while Object Lock provides **WORM (Write Once, Read Many)** protection for a defined retention period.
 
-* Accidental deletion
-* File corruption
-* Malware
-* Ransomware
-* Configuration mistakes
+This is an important part of my setup because the offsite copy should not simply disappear if the local environment is compromised.
 
-The objective is to prevent a compromise of the primary environment from immediately destroying every available backup.
+```text
+Local Backup
+     │
+     ▼
+Hetzner S3
+     │
+     ├── Versioning
+     └── Object Lock / WORM
+```
 
-The remote backup therefore acts as an additional recovery layer rather than simply being another network share.
+The goal is to keep recovery points that cannot simply be deleted or modified during their retention period, even if the production environment is compromised.
 
 ---
 
-# 5. Disaster Recovery
+# 3. Recovery Objectives
 
-The backup strategy is designed around the assumption that individual systems can fail completely.
+I use different recovery targets depending on how important the system is.
 
-The general recovery process is:
-
-```text
-System Failure
-      │
-      ▼
-Identify latest valid backup
-      │
-      ▼
-Restore VM / LXC
-      │
-      ▼
-Verify system integrity
-      │
-      ▼
-Start services
-      │
-      ▼
-Verify application functionality
-      │
-      ▼
-Return system to production
-```
-
-For critical systems, recovery should be tested periodically instead of assuming that a backup is valid.
-
-A backup is only considered reliable if it can successfully be restored.
-
----
-
-# 6. Recovery Priorities
-
-Recovery follows the same priority model as the backup strategy.
-
-```text
-1. Network / Infrastructure
-   └── OPNsense / Proxmox
-
-2. Critical Security & Infrastructure
-   ├── Wazuh
-   ├── Docker
-   └── CloudPanel
-
-3. Critical Applications
-   ├── Paperless
-   ├── InvoiceNinja
-   ├── Vaultwarden
-   └── other production services
-
-4. Storage / Data Services
-   ├── TrueNAS
-   └── required datasets
-
-5. Monitoring / Analysis
-   └── Security Onion
-
-6. Lab / Desktop Systems
-   ├── Kali
-   ├── BlackArch
-   ├── Windows 11
-   └── Ubuntu Desktop
-```
-
-This ensures that the most important infrastructure is restored first.
-
-
-## Recovery Objectives
-
-Recovery objectives are defined separately for local and offsite recovery.
-
-| Tier | RPO | Local RTO | Offsite RTO |
-|---|---:|---:|---:|
-| Critical | ≤ 24h | ≤ 45 min |  Not tested |
-| Important | ≤ 48h | ≤ 2h |  Not tested |
+| Tier        |         RPO |   Local RTO | Offsite RTO |
+| ----------- | ----------: | ----------: | ----------: |
+| Critical    |       ≤ 24h |    ≤ 45 min |  Not tested |
+| Important   |       ≤ 48h |        ≤ 2h |  Not tested |
 | Rebuildable | Best effort | Best effort |  Not tested |
 
-A typical local VM/LXC restore currently takes approximately 25 minutes from starting the restore until the system is available again.
+A typical local VM or LXC restore currently takes around **25 minutes** from starting the restore until the system is available again.
 
-A 45-minute RTO target is therefore used for critical local restores, providing additional time for service verification and troubleshooting.
+For Tier 1 systems I therefore use a **45-minute local RTO target**. This leaves some additional time for checking the service and fixing issues after the restore.
 
-Offsite recovery is expected to take significantly longer due to network transfer and remote storage access. The offsite RTO is therefore defined separately and will be validated through dedicated disaster recovery tests.
+The offsite RTO is currently not tested. A restore from Hetzner will take longer because the data has to be transferred over the network. This will be validated separately through a dedicated disaster recovery test.
 
 Backup failures are monitored through Proxmox notifications and reported to Discord.
 
-
-
 ---
 
-# 7. Backup Philosophy
+# 4. Hardware Redundancy & Cold Standby
 
-The strategy is intentionally **not based on backing up everything equally**.
-
-Critical data receives long retention and frequent backups, while rebuildable systems receive minimal retention.
-
-This reduces:
-
-* Backup storage consumption
-* Backup duration
-* Network traffic
-* I/O load
-
-while maintaining strong protection for the systems that actually require it.
-
-The overall objective is:
-
-```text
-Critical systems
-    → frequent + long retention
-
-Important systems
-    → moderate retention
-
-Rebuildable systems
-    → minimal backup + rebuild capability
-```
-
-This provides a balance between **availability, storage efficiency, security and recoverability**.
-
-
-# 8. Hardware Redundancy & Cold Standby
-
-In addition to the backup strategy, critical infrastructure has additional hardware-level protection.
+Backups are not the only protection in my setup. Some components also have hardware-level protection.
 
 ## Shared NAS
 
@@ -372,21 +217,21 @@ The shared NAS uses **RAID 1 with two SSDs**.
      SSD 1         SSD 2
        │             │
        └──── Mirror ─┘
-````
+```
 
-If one SSD fails, the NAS can continue operating while the failed drive is replaced and the RAID is rebuilt.
+If one SSD fails, the NAS can continue running while the failed drive is replaced and the RAID is rebuilt.
 
-RAID 1 is used for **availability and hardware fault tolerance**, not as a backup.
+RAID 1 is only used for **availability and protection against a disk failure**. It is not considered a backup.
 
-The data is still replicated to the backup infrastructure.
+The data is still copied to the backup infrastructure.
 
 ---
 
 ## OPNsense
 
-OPNsense runs on dedicated hardware and is therefore not dependent on the Proxmox environment.
+OPNsense runs on dedicated hardware and is therefore independent from my Proxmox environment.
 
-The OPNsense configuration is regularly backed up as `config.xml` to Nextcloud.
+The configuration is regularly backed up as `config.xml` to Nextcloud.
 
 ```text
 OPNsense
@@ -398,7 +243,7 @@ config.xml
 Nextcloud
 ```
 
-A dedicated replacement system is also available as a **cold standby**.
+I also keep a separate system available as a **cold standby**.
 
 ```text
              Production
@@ -417,15 +262,15 @@ A dedicated replacement system is also available as a **cold standby**.
          Network restored
 ```
 
-This is not considered High Availability because the standby system does not operate simultaneously with the production firewall.
+This is not HA because the second system is not running at the same time.
 
-Instead, it provides a **manual disaster recovery path** in case the primary OPNsense hardware fails.
+It is simply my manual recovery path if the primary OPNsense hardware fails.
 
 ---
 
 ## Availability vs. Backup
 
-The infrastructure intentionally separates **availability, redundancy and backup**.
+I keep availability, redundancy and backup separate in the design.
 
 ```text
 RAID 1
@@ -438,10 +283,67 @@ Local Backups
 → protect against data loss and configuration errors
 
 Offsite Backups
-→ protect against site-level disasters
+→ protect against loss of the local environment
 
 Snapshots / Isolation
-→ protect against ransomware and accidental deletion
+→ add protection against ransomware and accidental deletion
 ```
 
-RAID and cold standby therefore complement the 3-2-1 backup strategy but do not replace it.
+RAID and the OPNsense cold standby therefore complement the backup strategy, but neither replaces it.
+
+---
+
+# 5. Disaster Recovery
+
+The recovery process is based on my actual setup rather than assuming that every system needs to be rebuilt from scratch.
+
+For a failed VM or LXC, the first recovery option is the latest valid backup on the Synology NAS.
+
+```text
+System Failure
+      │
+      ▼
+Check latest valid backup
+      │
+      ▼
+Restore VM / LXC to Proxmox
+      │
+      ▼
+Verify system and configuration
+      │
+      ▼
+Start services
+      │
+      ▼
+Check application functionality
+      │
+      ▼
+Return system to production
+```
+
+For a local failure, the Synology backup is preferred because it provides the fastest restore path.
+
+If the local backup infrastructure itself is unavailable, the recovery path moves to the **Hetzner S3 copy**.
+
+```text
+Local failure
+      │
+      ▼
+Synology backup available?
+      │
+   ┌──┴──┐
+  YES    NO
+   │      │
+   ▼      ▼
+Restore  Hetzner S3
+from NAS      │
+              ▼
+          Restore data
+              │
+              ▼
+         Rebuild system
+```
+
+For critical systems, I do not consider a backup trustworthy just because the backup job completed successfully. The actual test is whether the VM or LXC can be restored and the service works afterwards.
+
+This gives me a clear recovery path from a normal VM failure up to a complete loss of the local backup environment.
