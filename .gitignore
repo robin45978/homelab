@@ -39,6 +39,7 @@ docker-compose.override.yml
 
 # Terraform
 *.tfstate
+.tfvars
 *.tfstate.backup
 .terraform/
 
