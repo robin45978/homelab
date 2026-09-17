@@ -37,11 +37,13 @@ docker-compose.override.yml
 # Restic
 .restic/
 
-# Terraform
-*.tfstate
-.tfvars
-*.tfstate.backup
+# OpenTofu / Terraform Verzeichnisse und Dateien
 .terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!example.tfvars
+.terraform.lock.hcl
 
 # Ansible
 *.retry
