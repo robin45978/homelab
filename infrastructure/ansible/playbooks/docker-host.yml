@@ -1,0 +1,57 @@
+---
+- name: Configure Docker host
+  hosts: docker01
+  become: true
+
+  tasks:
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Ensure Docker is running
+      ansible.builtin.systemd:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Create Docker services directory
+      ansible.builtin.file:
+        path: /opt/docker
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Create Authentik directory
+      ansible.builtin.file:
+        path: /opt/docker/authentik
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Download Authentik compose file
+      ansible.builtin.get_url:
+        url: https://docs.goauthentik.io/compose.yml
+        dest: /opt/docker/authentik/compose.yml
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Debug Vault variables
+      ansible.builtin.debug:
+        msg:
+          vault_pg_pass_defined: "{{ vault_pg_pass is defined }}"
+          vault_authentik_secret_key_defined: "{{ vault_authentik_secret_key is defined }}"
+
+
+    - name: Create Authentik environment file
+      ansible.builtin.copy:
+        dest: /opt/docker/authentik/.env
+        owner: root
+        group: root
+        mode: "0600"
+        content: |
+          PG_PASS={{ vault_pg_pass }}
+          AUTHENTIK_SECRET_KEY={{ vault_authentik_secret_key }}

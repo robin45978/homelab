@@ -2,16 +2,19 @@
 ##      Cloudflare Analytics zu InfluxDB 2.x für Grafana
 ##      Quelle: https://github.com/robin45978/homelab/tree/main/scripts/cloudflare
 
-# Konfiguration für InfluxDB 2.x
-InfluxDBURL=""
-InfluxDBOrg=""
-InfluxDBBucket=""
-InfluxDBToken=""
+# Load environment variables
+source "$(dirname "$0")/.env"
 
-# Cloudflare API-Konfiguration
-cloudflareapikey=""
-cloudflarezone=""
-cloudflareemail=""
+# InfluxDB 2.x
+InfluxDBURL="$INFLUXDB_URL"
+InfluxDBOrg="$INFLUXDB_ORG"
+InfluxDBBucket="$INFLUXDB_BUCKET"
+InfluxDBToken="$INFLUXDB_TOKEN"
+
+# Cloudflare API
+cloudflareapikey="$CLOUDFLARE_API_KEY"
+cloudflarezone="$CLOUDFLARE_ZONE"
+cloudflareemail="$CLOUDFLARE_EMAIL"
 
 # Zeitbereich: letzte 7 Tage
 back_seconds=60*60*24*7
