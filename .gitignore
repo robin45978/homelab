@@ -3,10 +3,10 @@
 *.env
 !.env.example
 
-# Ansible Configuration
-inventory/hosts.yml
-inventory/group_vars/all.yml
-inventory/group_vars/vault.yml
+# Ansible local configuration
+/infrastructure/ansible/inventory/hosts.yml
+/infrastructure/ansible/inventory/group_vars/all.yml
+/infrastructure/ansible/inventory/group_vars/vault.yml
 
 # Logs
 *.log
