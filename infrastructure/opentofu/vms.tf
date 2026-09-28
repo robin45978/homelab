@@ -22,7 +22,7 @@ resource "proxmox_virtual_environment_vm" "docker" {
   }
 
   memory {
-    dedicated = 6000
+    dedicated = 10000
   }
 
   disk {
