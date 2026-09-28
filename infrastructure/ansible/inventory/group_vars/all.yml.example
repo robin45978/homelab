@@ -1,0 +1,2 @@
+wazuh_manager: "10.0.x.x"
+wazuh_agent_version: "4.x.x"

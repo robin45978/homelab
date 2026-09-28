@@ -25,3 +25,10 @@ Apply the configuration:
 ```bash
 tofu apply
 ```
+
+```bash
+set -a
+source .env
+set +a
+tofu plan
+```

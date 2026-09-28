@@ -3,6 +3,11 @@
 *.env
 !.env.example
 
+# Ansible Configuration
+inventory/hosts.yml
+inventory/group_vars/all.yml
+inventory/group_vars/vault.yml
+
 # Logs
 *.log
 logs/
@@ -51,10 +56,6 @@ docker-compose.override.yml
 # Private / personal files
 private/
 
-# Claude Code files
-CLAUDE.md
-.claude/
-.codex/
 
 # Private keys
 *.key

@@ -1,10 +1,10 @@
 
-# VM 113 - Docker
+# VM 113 - docker01
 resource "proxmox_virtual_environment_vm" "docker" {
   node_name = "pve-elt-01"
   vm_id     = 113
 
-  name    = "Docker"
+  name    = "docker01"
   on_boot = true
 
   boot_order = [
@@ -22,7 +22,7 @@ resource "proxmox_virtual_environment_vm" "docker" {
   }
 
   memory {
-    dedicated = 4000
+    dedicated = 6000
   }
 
   disk {

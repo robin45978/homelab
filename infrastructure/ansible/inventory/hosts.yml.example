@@ -1,0 +1,6 @@
+all:
+  hosts:
+    docker01:
+      ansible_host: 10.0.x.x
+      ansible_user: ansible
+      ansible_become: true
