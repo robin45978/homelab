@@ -6,6 +6,7 @@ My guiding principle is to find an open-source solution for everything whenever 
 
 My goal is to build a secure and highly efficient cloud architecture while gaining hands-on experience with various technologies in the fields of networking, virtualization, cloud computing, and cybersecurity.
 
+More detailed information about the individual systems can be found in the respective subdirectories.
 
 
 <br>
@@ -43,13 +44,7 @@ My goal is to build a secure and highly efficient cloud architecture while gaini
 
 
 <br>
-
-
-
-
-
 <br>
-
 
 # Update: Home Lab Infrastructure Rebuild
 
@@ -86,7 +81,6 @@ Currently, my home lab consists of a cluster with 3 nodes, a firewall, and sever
 
 Since my connection between the devices is still limited to 1 Gbit/s, I'm avoiding Ceph on purpose and instead using NFS via a shared NAS to ensure high availability. Of course, this doesn't offer all the benefits, but it's currently the best solution for my setup.
 
-The next step will be upgrading to 10 Gbit/s. :)
 
 <img width="990" height="598" alt="Proxmox" src="https://github.com/user-attachments/assets/2680800b-98d4-438f-802c-1e9034ecd33c" />
 
@@ -106,7 +100,7 @@ Over the years, I've replaced some technologies with other solutions. Below, I'l
 | OpenVPN             | WireGuard             | Better performance           |
 | OpenMediaVault      | TrueNAS SCALE         | Storage requirements         |
 | Pi-hole             | AdGuard Home          | More filtering options       |
-| Plex                | Jellyfin              | Cost                         |
+| Plex                | Jellyfin              | Costs                        |
 | Plesk               | CloudPanel            | Open source                  |
 | Self-hosted 3CX     | External 3CX Cloud    | Licensing model changed      |
 | HAProxy on OPNsense | Cloudflare Tunnel     | DDoS protection / Zero Trust |
@@ -158,7 +152,7 @@ since the requests first arrive at Cloudflare.
 
 
 
-## Planned Project: Internal Infrastructure & Secure Access
+# Planned Project: Internal Infrastructure & Secure Access
 
 In my new project, I’m expanding my internal infrastructure with Docker Compose, Traefik, Cloudflare DNS-01, and Authentik. I’m setting up a central reverse proxy structure and using OPNsense for internal DNS resolution, so that my services are accessible internally via wildcard subdomains. Cloudflare DNS-01 allows me to use trusted TLS certificates without making the internal services publicly accessible. Selected services are additionally secured externally via Cloudflare Zero Trust. I’m trying to program the infrastructure largely using Ansible and OpenTofu and set it up in a reproducible way.
 
@@ -209,8 +203,9 @@ my own system.
 - [ ] Centralized security alerts
 
 ### 🖥️ Infrastructure
+- [x] OpenTofu (Terraform)
 - [ ] Kubernetes / K3s
-- [ ] Expand home lab
+- [x] Expand home lab
 
 ### 📚 Documentation
 - [ ] Fully document network and infrastructure
@@ -218,9 +213,10 @@ my own system.
 
 <br>
 
+
 # Contact
-- LinkedIn: Robin Lorenz
-- GitHub: robin45978
+- LinkedIn: [Robin Lorenz](https://www.linkedin.com/in/robin-lorenz-15a983410)
+- GitHub: [robin45978](https://github.com/robin45978)
 
 
 <br>
